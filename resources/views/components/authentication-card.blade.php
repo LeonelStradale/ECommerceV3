@@ -1,9 +1,8 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-    <div>
-        {{ $logo }}
-    </div>
+@props(['width' => 'sm:max-w-md'])
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+<div
+    class="w-full {{ $width }} bg-white rounded-lg shadow-2xl dark:border md:mt-0 xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
         {{ $slot }}
     </div>
 </div>
