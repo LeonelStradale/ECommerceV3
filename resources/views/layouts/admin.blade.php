@@ -23,9 +23,18 @@
 
     <!-- Styles -->
     @livewireStyles
+
+    <!-- Dark Mode: Data -->
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
 </head>
 
-<body class="font-sans antialiased" x-data="{
+<body class="font-sans antialiased bg-gray-100 dark:bg-gray-900" x-data="{
     sidebarOpen: false
 }" :class="{
     'overflow-y-hidden': sidebarOpen
@@ -39,7 +48,7 @@
 
     @include('layouts.partials.admin.sidebar')
 
-    <div class="p-4 sm:ml-64">
+    <div class="p-4 sm:ml-56">
 
         <div class="mt-14">
 
@@ -53,7 +62,7 @@
                 @endisset
             </div>
 
-            <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+            <div class="p-4 rounded-lg">
 
                 {{ $slot }}
 
