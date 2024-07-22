@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Option extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'type',
+    ];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function features()
+    {
+        return $this->hasMany(Feature::class);
+    }
 }

@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('sku');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('image_path');
+            $table->float('price');
+            $table->integer('stock')->unsigned()->default(0);
+            $table->foreignId('subcategory_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
