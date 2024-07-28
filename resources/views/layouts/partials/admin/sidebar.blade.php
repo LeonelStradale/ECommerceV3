@@ -11,7 +11,7 @@
             // Family
             'name' => 'Familias',
             'icon' => 'fa-solid fa-box-open',
-            'route' => '',
+            'route' => route('admin.families.index'),
             'active' => request()->routeIs('admin.families.*'),
         ],
     ];
@@ -29,9 +29,10 @@
             @foreach ($links as $link)
                 <li>
                     <a href="{{ $link['route'] }}"
-                        class="flex items-center p-2 text-gray-900 dark:text-white rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 group {{ $link['active'] ? 'bg-gray-200 dark:bg-gray-600' : '' }}">
+                        class="flex items-center p-2 text-gray-900 dark:text-white rounded-lg group {{ $link['active'] ? 'text-white bg-primary-600 dark:bg-primary-700' : 'hover:bg-primary-200 dark:hover:bg-primary-900' }}">
                         <span class="inline-flex w-8 h-8 justify-center items-center">
-                            <i class="{{ $link['icon'] }} text-gray-900 dark:text-white"></i>
+                            <i
+                                class="{{ $link['icon'] }} {{ $link['active'] ? 'text-white' : 'text-gray-900 dark:text-white' }}"></i>
                         </span>
                         <span class="ml-2">
                             {{ $link['name'] }}

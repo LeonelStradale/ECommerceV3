@@ -5,7 +5,24 @@
 
         <x-authentication-card>
 
-            <x-validation-errors class="mb-4" />
+            @if ($errors->any())
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            title: '¡Error trying to log in!',
+                            html: `
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                                </ul>
+                                `,
+                            icon: 'error',
+                            confirmButtonText: 'Retry',
+                        });
+                    });
+                </script>
+            @endif
 
             @session('status')
                 <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">

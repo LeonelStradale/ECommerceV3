@@ -15,12 +15,22 @@
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/3c50d6bc4f.js" crossorigin="anonymous"></script>
-    
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
     @livewireStyles
+
+    <!-- Dark Mode: Data -->
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
 </head>
 
 <body>
@@ -30,6 +40,8 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @livewireScripts
 </body>
