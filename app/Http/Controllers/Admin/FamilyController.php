@@ -33,7 +33,7 @@ class FamilyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'icon' => 'required'
+            'icon' => 'required',
         ]);
 
         Family::create($request->all());
@@ -60,7 +60,7 @@ class FamilyController extends Controller
      */
     public function edit(Family $family)
     {
-        //
+        return view('admin.families.edit', compact('family'));
     }
 
     /**
@@ -68,7 +68,20 @@ class FamilyController extends Controller
      */
     public function update(Request $request, Family $family)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'icon' => 'required',
+        ]);
+
+        $family->update($request->all());
+
+        session()->flash('swal', [
+            'icon' => 'success',
+            'title' => '¡Éxito!',
+            'text' => 'La nueva familia se actualizó correctamente.'
+        ]);
+
+        return redirect()->route('admin.families.edit', $family);
     }
 
     /**
@@ -76,6 +89,24 @@ class FamilyController extends Controller
      */
     public function destroy(Family $family)
     {
-        //
+        if ($family->categories->count() > 0) {
+            session()->flash('swal', [
+                'icon' => 'error',
+                'title' => '¡Ups!',
+                'text' => 'No se puede eliminar la familia porque tiene categorías asociadas.'
+            ]);
+
+            return redirect()->route('admin.families.edit', $family);
+        }
+
+        $family->delete();
+
+        session()->flash('swal', [
+            'icon' => 'success',
+            'title' => '¡Éxito!',
+            'text' => 'La familia se eliminó correctamente.'
+        ]);
+
+        return redirect()->route('admin.families.index');
     }
 }

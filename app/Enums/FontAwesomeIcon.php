@@ -5,6 +5,22 @@ namespace App\Enums;
 enum FontAwesomeIcon: string
 {
     case FA_TV = 'Television';
+    case FA_ELECTROHOME = 'Electrohome';
+    case FA_MEN_FASHION = 'Men Fashion';
+    case FA_WOMAN_FASHION = 'Woman Fashion';
+    case FA_BEAUTY = 'Beauty';
+    case FA_SUPERMARKET = 'Supermarket';
+    case FA_SPORTS = 'Sports';
+    case FA_HOME_IMPROVEMENT = 'Home Improvement';
+    case FA_KIDS_FASHION = 'Kid Fashion';
+    case FA_PETS = 'Pets';
+    case FA_BEDROOM = 'Bedroom';
+    case FA_TOYS_BABY = 'Toys baby';
+    case FA_HEALTH_WELLNESS = 'Healt Wellness';
+    case FA_AUTOMOTIVE = 'Automotive';
+    case FA_FURNITURE = 'Furniture';
+    case FA_BOOKSTORE = 'Bookstore';
+    case FA_PHARMACY = 'Pharmacy';
     case FA_MOBILE_ALT = 'Mobile';
     case FA_LAPTOP = 'Laptop';
     case FA_CAMERA = 'Camera';
@@ -28,7 +44,7 @@ enum FontAwesomeIcon: string
     case FA_CLOCK = 'Clock';
     case FA_FAN = 'Fan';
     case FA_CAR = 'Car';
-    case FA_HOME = 'Home';
+    case FA_HOUSE = 'Home';
     case FA_SHOPPING_CART = 'Shopping Cart';
     case FA_BICYCLE = 'Bicycle';
     case FA_TREE = 'Tree';
@@ -39,6 +55,22 @@ enum FontAwesomeIcon: string
     {
         return match($this) {
             self::FA_TV => 'fa-tv',
+            self::FA_ELECTROHOME => 'fa-mug-saucer',
+            self::FA_MEN_FASHION => 'fa-person',
+            self::FA_WOMAN_FASHION => 'fa-person-dress',
+            self::FA_BEAUTY => 'fa-face-kiss-beam',
+            self::FA_SUPERMARKET => 'fa-cart-shopping',
+            self::FA_SPORTS => 'fa-volleyball',
+            self::FA_HOME_IMPROVEMENT => 'fa-house-circle-check',
+            self::FA_KIDS_FASHION => 'fa-child',
+            self::FA_PETS => 'fa-dog',
+            self::FA_BEDROOM => 'fa-bed',
+            self::FA_TOYS_BABY => 'fa-baby',
+            self::FA_HEALTH_WELLNESS => 'fa-heart-pulse',
+            self::FA_AUTOMOTIVE => 'fa-car',
+            self::FA_FURNITURE => 'fa-couch',
+            self::FA_BOOKSTORE => 'fa-book',
+            self::FA_PHARMACY => 'fa-house-medical',
             self::FA_MOBILE_ALT => 'fa-mobile-alt',
             self::FA_LAPTOP => 'fa-laptop',
             self::FA_CAMERA => 'fa-camera',
@@ -62,7 +94,7 @@ enum FontAwesomeIcon: string
             self::FA_CLOCK => 'fa-clock',
             self::FA_FAN => 'fa-fan',
             self::FA_CAR => 'fa-car',
-            self::FA_HOME => 'fa-home',
+            self::FA_HOUSE => 'fa-home',
             self::FA_SHOPPING_CART => 'fa-shopping-cart',
             self::FA_BICYCLE => 'fa-bicycle',
             self::FA_TREE => 'fa-tree',
